@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 /**
  * Simulate downloading some ad words data.
  */
-public class AdwordAPIAccessor extends AdwordAccessor {
+public class AdwordAPIAccessor implements AdwordAccessor {
   @Override
   public List<Adword> getAdwordData() {
     // download using another thread since it is a remote service

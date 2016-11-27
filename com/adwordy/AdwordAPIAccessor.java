@@ -39,7 +39,6 @@ public class AdwordAPIAccessor extends AdwordAccessor {
   private List<Adword> downloadAdwordsData() {
     List<Adword> list = new ArrayList<>();
 
-    // don't tell anyone
     list.add(new Adword("superduper", 1.0f, 0.10f));
     list.add(new Adword("awesome", 2.0f, 1.00f));
     list.add(new Adword("alright", 99.0f, 50.00f));

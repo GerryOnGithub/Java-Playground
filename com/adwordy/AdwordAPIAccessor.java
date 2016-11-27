@@ -16,18 +16,21 @@ import java.util.logging.Logger;
 public class AdwordAPIAccessor extends AdwordAccessor {
   @Override
   public List<Adword> getAdwordData() {
-      // download using another thread since it is a remote service
+    // download using another thread since it is a remote service
     ExecutorService es = Executors.newSingleThreadExecutor();
     Callable<List<Adword>> callable = () -> { return downloadAdwordsData(); };
     Future<List<Adword>> future = es.submit(callable);
 
-    List<Adword> adwords = new ArrayList<>();
+    List<Adword> adwords;
     try {
       adwords = future.get();
-      es.shutdownNow();
     }
     catch (InterruptedException | ExecutionException ex) {
+      adwords = new ArrayList<>();
       Logger.getLogger(AdwordAPIAccessor.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    finally {
+      es.shutdownNow();
     }
     return adwords;
   }
@@ -39,7 +42,6 @@ public class AdwordAPIAccessor extends AdwordAccessor {
   private List<Adword> downloadAdwordsData() {
     List<Adword> list = new ArrayList<>();
 
-    // don't tell anyone
     list.add(new Adword("superduper", 1.0f, 0.10f));
     list.add(new Adword("awesome", 2.0f, 1.00f));
     list.add(new Adword("alright", 99.0f, 50.00f));
@@ -51,7 +53,7 @@ public class AdwordAPIAccessor extends AdwordAccessor {
       Thread.sleep(200); // simulate hitting a remote server
     }
     catch (InterruptedException ex) {
-      Logger.getLogger(AdwordAPIAccessor.class.getName()).log(Level.SEVERE, "no thread(s) for you!", ex);
+      Logger.getLogger(AdwordAPIAccessor.class.getName()).log(Level.SEVERE, null, ex);
     }
     return list;
   }

@@ -12,7 +12,7 @@ public interface AdwordRankerAlgorithm {
 	Adword rank(Adword adword);
 
 	default Predicate<Adword> costFilter(float maxDollars) {
-		return (Adword data) -> data.cheapEnough(maxDollars);
+		return (Adword data) -> data.getDollars() <= maxDollars;
 	}
 
 	default Comparator<Adword> sorter(){

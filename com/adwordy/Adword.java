@@ -1,7 +1,7 @@
 package com.adwordy;
 
 /**
- * A simple place to store ad-word data.
+ * A place to store ad-word data.
  */
 public class Adword {
 	final private String word;
@@ -37,14 +37,6 @@ public class Adword {
 
 	public double getDollars() {
 		return dollars;
-	}
-
-	/**
-	 * @param maxDollars
-	 * @return if the ad-word is within the indicated budget
-	 */
-	public boolean cheapEnough(float maxDollars) {
-		return dollars <= maxDollars;
 	}
 
 	/**

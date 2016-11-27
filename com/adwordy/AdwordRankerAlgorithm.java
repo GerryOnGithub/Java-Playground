@@ -9,7 +9,7 @@ public interface AdwordRankerAlgorithm {
    * @param adword
    * @return for caller convenience, returns the input
    */
-  Adword rank(Adword adword);
+  void rank(Adword adword);
 
   default Predicate<Adword> costFilter(float maxDollars) {
     return (Adword data) -> data.getDollars() <= maxDollars;

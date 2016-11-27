@@ -20,7 +20,7 @@ public class Main {
 
     adwords.stream()
            .filter(cheapEnough)
-           .map(adWord -> { return ranker.rank(adWord); }) // keep the stream flowing...
+           .peek(adWord -> { ranker.rank(adWord); })
            .sorted(comparator)
            .forEach(adWord -> { adWord.print(); });
 

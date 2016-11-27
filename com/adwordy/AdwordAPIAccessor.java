@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 public class AdwordAPIAccessor extends AdwordAccessor {
   @Override
   public List<Adword> getAdwordData() {
-      // download using another thread since it is a remote service
+    // download using another thread since it is a remote service
     ExecutorService es = Executors.newSingleThreadExecutor();
     Callable<List<Adword>> callable = () -> { return downloadAdwordsData(); };
     Future<List<Adword>> future = es.submit(callable);

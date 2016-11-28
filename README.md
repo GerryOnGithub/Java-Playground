@@ -1,7 +1,7 @@
 ### Java-Playground
 The adwordy sub-directory is a (simple) simulation of ranking ad-words in order to determine best fit. Program starts in Main.java.
 
-The output looks like the following, with lower ratio indicating lower cost per click through:
+The output looks like the following, with lower ratio indicating lower cost per click:
 ```
 starting
 Word(s): "okay"	ratio: 0.05	cost: $4.99	click through 99%

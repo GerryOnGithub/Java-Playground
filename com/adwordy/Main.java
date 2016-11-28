@@ -13,7 +13,6 @@ public class Main {
     AdwordAccessor accessor = AdwordsAccessorFactory.getAccessor(args);
     AdwordRankerAlgorithm ranker = AdwordsRankerAlgorithmFactory.getAlgorithm(args);
 
-    // let's declare what these methods are returning (for a little extra clarity)
     List<Adword> adwords = accessor.getAdwordData();
     Predicate<Adword> cheapEnough = ranker.costFilter(MOSTWEWILLPAY);
     Comparator<Adword> comparator = ranker.sorter();

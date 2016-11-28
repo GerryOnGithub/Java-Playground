@@ -7,7 +7,7 @@ public class Adword {
   final private String word;
   final private float click;
   final private float dollars;
-  private double rank;
+  private double ratio;
 
   final public int NOT_SET = Integer.MIN_VALUE;
 
@@ -21,7 +21,7 @@ public class Adword {
 		word = adWord;
 		click = clickThroughPercentage;
 		dollars = clickCost;
-		rank = NOT_SET;
+		ratio = NOT_SET;
   }
 
   public String getAdWord() {
@@ -40,18 +40,18 @@ public class Adword {
   }
 
   /**
-   * Set the rank.
-   * @param rank 
+   * Set the ratio.
+   * @param ratio 
    */
-  public void setRank(double rank) {
-    this.rank = rank;
+  public void setRatio(double ratio) {
+    this.ratio = ratio;
   }
 
   /**
-   * @return rank, or NOT_SET if rank has never been set. Lower is better, as it is a measure of cost.
+   * @return ratio, or NOT_SET if ratio has never been set. Lower is better, as it is a measure of cost.
    */
-  public double getRank() {
-    return rank;
+  public double getRatio() {
+    return ratio;
   }
 
   public void print() {
@@ -60,6 +60,6 @@ public class Adword {
 
   @Override
   public String toString() {
-    return String.format("Word(s): \"%s\"\trank: %.2f\tcost: $%.2f\tclick through %d%%", word, rank, dollars, (int)click);
+    return String.format("Word(s): \"%s\"\tratio: %.2f\tcost: $%.2f\tclick through %d%%", word, ratio, dollars, (int)click);
   }
 }

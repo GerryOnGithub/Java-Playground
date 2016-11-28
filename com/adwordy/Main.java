@@ -20,7 +20,7 @@ public class Main {
 
     adwords.stream()
            .filter(cheapEnough)
-           .peek(adWord -> { ranker.rank(adWord); })
+           .peek(adWord -> { ranker.calcRatio(adWord); })
            .sorted(comparator)
            .forEach(adWord -> { adWord.print(); });
 
